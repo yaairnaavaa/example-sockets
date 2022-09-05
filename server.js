@@ -36,6 +36,9 @@ io.on('connection', function (socket) {
     console.log(players);
   });
 });
-server.listen(8081, function () {
+
+const PORT = process.env.PORT || 8081;
+
+server.listen(PORT, function () {
   console.log(`Listening on ${server.address().port}`);
 });
