@@ -5,7 +5,7 @@ var server = require('http').Server(app);
 var players = {};
 app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+  res.send("Este es un Hola desde el Servidor");
 });
 
 const io = require('socket.io')(server);
