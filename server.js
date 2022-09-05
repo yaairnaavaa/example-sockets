@@ -1,11 +1,13 @@
 var express = require('express');
 var app = express();
 var server = require('http').Server(app);
+var cors = require('cors');
 
 var players = {};
+app.use(cors());
 app.use(express.static(__dirname + '/public'));
 app.get('/', function (req, res) {
-  res.send("Este es un Hola desde el Servidor");
+  res.send("HOLA desde HEROKU");
 });
 
 const io = require('socket.io')(server);
@@ -37,7 +39,7 @@ io.on('connection', function (socket) {
   });
 });
 
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 8082;
 
 server.listen(PORT, function () {
   console.log(`Listening on ${server.address().port}`);
