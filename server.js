@@ -10,7 +10,8 @@ app.get('/', function (req, res) {
   res.send("HOLA desde HEROKU");
 });
 
-const io = require('socket.io')(server);
+//const io = require('socket.io')(server);
+const io = require("socket.io")(server, {  cors: {    origin: "http://localhost:8080",    methods: ["GET", "POST"]  }});
 
 io.on('connection', function (socket) {
   console.log('a user connected');
