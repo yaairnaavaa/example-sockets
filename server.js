@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 });
 
 //const io = require('socket.io')(server);
-const io = require("socket.io")(server, {  cors: {    origin: "http://localhost:8080",    methods: ["GET", "POST"]  }});
+const io = require("socket.io")(server, {  cors: {    origin: "http://localhost:8000",    methods: ["GET", "POST"]  }});
 
 io.on('connection', function (socket) {
   console.log('a user connected');
