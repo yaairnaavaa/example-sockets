@@ -58,18 +58,16 @@ io.on('connection', function (socket) {
     io.emit('starLocation', star);
     io.emit('scoreUpdate', scores);
   });
+
+  socket.on('nftMint', function (accountId) {
+    console.log(accountId);
+    data = {
+      reload: true
+    }
+    socket.broadcast.emit('nftMint', data);
+  });
   
 });
-
-socket.on('nftMint', function (accountId) {
-  console.log(accountId);
-  data = {
-    reload: true
-  }
-  socket.broadcast.emit('nftMint', data);
-});
-
-
 
 const PORT = process.env.PORT || 8082;
 
