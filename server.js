@@ -61,6 +61,16 @@ io.on('connection', function (socket) {
   
 });
 
+socket.on('nftMint', function (accountId) {
+  console.log(accountId);
+  data = {
+    reload: true
+  }
+  socket.broadcast.emit('nftMint', data);
+});
+
+
+
 const PORT = process.env.PORT || 8082;
 
 server.listen(PORT, function () {
